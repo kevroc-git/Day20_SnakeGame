@@ -1,19 +1,58 @@
+
 from turtle import Turtle, Screen
+import time
+from snake import Snake
 
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("My Snake Game")
-screen.colormode(255)
+# screen.tracer(0)
+# screen.colormode(255)
 
-slinky = []
 
-def create_slinky():
-    starting_positions = [(0,0),(-20,0),(-40,0)]
-    for position in starting_positions:
-        segment = Turtle(shape="square")
-        segment.color("white")
-        segment.setposition(position)
+slinky = Snake.create_slinky("")
+print("slinky created", slinky)
 
-create_slinky()
+game_is_on = True
+
+while game_is_on:
+    print(slinky)
+    Snake.move_slinky(slinky)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+screen.exitonclick()
 
