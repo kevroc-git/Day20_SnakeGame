@@ -8,18 +8,19 @@ screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("My Snake Game")
 
+
 # screen.colormode(255)
 
 
-slinky = Snake.create_slinky()
-print("slinky created", slinky)
+slinky = Snake()
+
 
 game_is_on = True
 
 while game_is_on:
     print(slinky)
-    Snake.move_slinky(slinky)
-    screen.update()
+    slinky.move_slinky()
+
 
 
 
