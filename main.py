@@ -7,11 +7,11 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.bgcolor("black")
 screen.title("My Snake Game")
-# screen.tracer(0)
+
 # screen.colormode(255)
 
 
-slinky = Snake.create_slinky("")
+slinky = Snake.create_slinky()
 print("slinky created", slinky)
 
 game_is_on = True
@@ -19,6 +19,7 @@ game_is_on = True
 while game_is_on:
     print(slinky)
     Snake.move_slinky(slinky)
+    screen.update()
 
 
 

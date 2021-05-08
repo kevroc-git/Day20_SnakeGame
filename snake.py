@@ -1,17 +1,16 @@
 
 # build snake class
+from turtle import Turtle
+STARTING_POSITIONS = [(-10, 0), (-20, 0), (-40, 0)]
 
 class Snake:
 
     def __init__(self):
-        slinky = []
+        self.slinky = []
+        self.create_slinky()
 
     def create_slinky(self):
-        slinky = []
-        starting_positions = [(-10,0),(-20,0),(-40,0)]
-        from turtle import Turtle
-
-        for position in starting_positions:
+        for position in STARTING_POSITIONS:
             if position == (-10,0):
                 segment = Turtle(shape="arrow")
             else:
@@ -19,7 +18,7 @@ class Snake:
             segment.color("white")
             segment.penup()
             segment.setposition(position)
-            slinky.append(segment)
+            self.slinky.append(segment)
             snake_head = slinky[0]
         return slinky
 
@@ -27,6 +26,8 @@ class Snake:
     def move_slinky(slinky):
         print("in move slinky", slinky)
         import time
+        from turtle import Screen
+        Screen().tracer(0)
         print("length of slinky", len(slinky))
         for each_piece_of_slinky in range(len(slinky) - 1, 0, -1):
 
@@ -37,8 +38,8 @@ class Snake:
             # move last segment to next to last
             slinky[each_piece_of_slinky].goto(new_x, new_y)
             print("moved piece", each_piece_of_slinky)
-            time.sleep(5)
-            # screen.update()
+            time.sleep(1)
+
 
         slinky[0].forward(20)
         slinky[0].left(90)
