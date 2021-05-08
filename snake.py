@@ -1,19 +1,25 @@
 
 # build snake class
 from turtle import Turtle, Screen
-import time
+
 screen = Screen()
 
 
 
 STARTING_POSITIONS = [(00, 0), (-10, 0), (-30, 0)]
+MOVE_DISTANCE = 10
+UP = 90
+DOWN = 270
+RIGHT = 0
+LEFT = 180
+
 
 class Snake:
     def __init__(self):
         self.slinky = []
         self.create_slinky()
         print("slinky created", self.slinky)
-        screen.update()
+        self.snake_head = self.slinky[0]
 
     def create_slinky(self):
         for position in STARTING_POSITIONS:
@@ -30,7 +36,6 @@ class Snake:
     def move_slinky(self):
         print("in move slinky", self.slinky)
         print("length of slinky", len(self.slinky))
-        time.sleep(2)
 
         for each_piece_of_slinky in range(len(self.slinky) - 1, 0, -1):
             print("in for loop", each_piece_of_slinky)
@@ -40,8 +45,27 @@ class Snake:
             # move last segment to next to last
             self.slinky[each_piece_of_slinky].goto(new_x, new_y)
             print("moved piece", each_piece_of_slinky)
-            time.sleep(2)
 
-        self.slinky[0].forward(10)
-        # self.slinky[0].left(90)
+        self.slinky[0].forward(MOVE_DISTANCE)
         return self.slinky
+
+    def up(self):
+        print(self.snake_head.heading())
+        if self.snake_head.heading() != DOWN:
+            self.snake_head.seth(UP)
+
+    def down(self):
+        print(self.snake_head.heading())
+        if self.snake_head.heading() != UP:
+            self.snake_head.seth(DOWN)
+
+    def left(self):
+        print(self.snake_head.heading())
+        if self.snake_head.heading() != RIGHT:
+           self.snake_head.seth(LEFT)
+
+    def right(self):
+        print(self.snake_head.heading())
+        if self.snake_head.heading() != LEFT:
+            self.snake_head.seth(RIGHT)
+
