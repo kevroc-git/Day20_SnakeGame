@@ -28,8 +28,9 @@ class Snake:
                 segment = Turtle(shape="arrow")
             else:
                 segment = Turtle(shape="square")
-            segment.color("white")
             segment.penup()
+            segment.color("white")
+
             segment.setposition(position)
             self.slinky.append(segment)
         return self.slinky
@@ -72,25 +73,25 @@ class Snake:
 
     def add_segment(self, slinky):
         # Add Segment
+
         segment = Turtle(shape="square")
-        segment.color("white")
+        segment.hideturtle()
         segment.penup()
+        segment.color("white")
         self.slinky.append(segment)
         time.sleep(TIME_DELAY)
         for each_piece_of_slinky in range(len(self.slinky) - 1, 0, -1):
-            # print("in for loop", each_piece_of_slinky)
-            # get position of next to last segment
             time.sleep(TIME_DELAY)
             new_x = self.slinky[each_piece_of_slinky - 1].xcor()
             new_y = self.slinky[each_piece_of_slinky - 1].ycor()
             # move last segment to next to last
             time.sleep(TIME_DELAY)
             self.slinky[each_piece_of_slinky].goto(new_x, new_y)
-            # print("moved piece", each_piece_of_slinky)
+            segment.showturtle()
+
         time.sleep(TIME_DELAY)
         self.slinky[0].forward(MOVE_DISTANCE)
         # print("moving forward")
         time.sleep(TIME_DELAY)
         return self.slinky
 
-    
