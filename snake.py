@@ -8,7 +8,7 @@ screen = Screen()
 
 
 STARTING_POSITIONS = [(00, 0), (-10, 0), (-30, 0)]
-MOVE_DISTANCE = 10
+MOVE_DISTANCE = 20
 UP = 90
 DOWN = 270
 RIGHT = 0
@@ -25,7 +25,7 @@ class Snake:
     def create_slinky(self):
         for position in STARTING_POSITIONS:
             if position == (0,0):
-                segment = Turtle(shape="arrow")
+                segment = Turtle(shape="square")
             else:
                 segment = Turtle(shape="square")
             segment.penup()
