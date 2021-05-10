@@ -1,8 +1,8 @@
 
 # build snake class
+
 from turtle import Turtle, Screen
 import time
-
 screen = Screen()
 
 
